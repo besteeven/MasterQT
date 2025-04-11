@@ -195,7 +195,7 @@ class CalculatorMode(QWidget):
         # Tête du robot
         self.robot_label = QLabel(self)
         self.robot_pixmap = QPixmap(resource_path("./img/neutre.png"))  # Assurez-vous que l'image est dans le bon dossier
-        self.robot_pixmap = self.robot_pixmap.scaled(200, 200, Qt.AspectRatioMode.KeepAspectRatio)
+        self.robot_pixmap = self.robot_pixmap.scaled(250, 250, Qt.AspectRatioMode.KeepAspectRatio)
         self.robot_label.setPixmap(self.robot_pixmap)
         self.robot_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.layout.addWidget(self.robot_label)
@@ -267,7 +267,7 @@ class CalculatorMode(QWidget):
             imglist = ["1.png", "2.png", "3.png", "4.png", "5.png", "happy.png", "neutre.png"]
             imgrandom = random.choice(imglist)
             self.robot_pixmap = QPixmap(resource_path(f"./img/{imgrandom}"))
-            self.robot_pixmap = self.robot_pixmap.scaled(200, 200, Qt.AspectRatioMode.KeepAspectRatio)
+            self.robot_pixmap = self.robot_pixmap.scaled(250, 250, Qt.AspectRatioMode.KeepAspectRatio)
             self.robot_label.setPixmap(self.robot_pixmap)
 
         except Exception:
