@@ -1,8 +1,15 @@
 import sys
+import os
 import random
 from PyQt6.QtWidgets import QApplication, QGridLayout, QMainWindow, QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QStackedWidget
 from PyQt6.QtGui import QPixmap
 from PyQt6.QtCore import Qt
+
+
+def resource_path(relative_path):
+    """Obtenir le chemin absolu d'une ressource, fonctionne pour le script et l'exécutable."""
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
 
 class MainMenu(QWidget):
     """Fenêtre principale pour choisir le mode."""
@@ -52,7 +59,7 @@ class RobotGame(QWidget):
 
         # Affichage du robot
         self.robot_label = QLabel(self)
-        self.robot_pixmap = QPixmap("./img/neutre.png")  # Assurez-vous que l'image est dans le bon dossier
+        self.robot_pixmap = QPixmap(resource_path("./img/neutre.png"))  # Assurez-vous que l'image est dans le bon dossier
         self.robot_pixmap = self.robot_pixmap.scaled(400, 400, Qt.AspectRatioMode.KeepAspectRatio)
         self.robot_label.setPixmap(self.robot_pixmap)
         self.robot_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -125,14 +132,14 @@ class RobotGame(QWidget):
             user_answer = int(self.answer_input.text())
             if user_answer == self.correct_answer:
                 self.result_label.setText("Bravo ! Vous avez trouvé la bonne réponse.")
-                self.robot_pixmap = QPixmap("./img/happy.png")
+                self.robot_pixmap = QPixmap(resource_path("./img/happy.png"))
                 if self.mode == "test":
                     self.score += 1
                 if self.mode == "train":
                     self.next_button.setVisible(False)  # Cacher le bouton "Suivant" si la réponse est correcte
             else:
                 self.result_label.setText("Dommage ! Essayez encore.")
-                self.robot_pixmap = QPixmap("./img/triste.png")
+                self.robot_pixmap = QPixmap(resource_path("./img/triste.png"))
                 if self.mode == "train":
                     self.next_button.setVisible(True)  # Afficher le bouton "Suivant" si la réponse est incorrecte
 
@@ -160,7 +167,7 @@ class RobotGame(QWidget):
         self.operation_label.setText(f"Quel est le résultat de {self.num1} {self.operation} {self.num2} ?")
         self.answer_input.clear()
         self.result_label.setText("")  # Réinitialiser le message de résultat
-        self.robot_pixmap = QPixmap("./img/neutre.png")
+        self.robot_pixmap = QPixmap(resource_path("./img/neutre.png"))
         self.robot_pixmap = self.robot_pixmap.scaled(self.robot_label.width(), self.robot_label.height(), Qt.AspectRatioMode.KeepAspectRatio)
         self.robot_label.setPixmap(self.robot_pixmap)
         self.next_button.setVisible(False)  # Cacher le bouton "Suivant" après avoir généré une nouvelle question
@@ -187,7 +194,7 @@ class CalculatorMode(QWidget):
 
         # Tête du robot
         self.robot_label = QLabel(self)
-        self.robot_pixmap = QPixmap("./img/neutre.png")  # Assurez-vous que l'image est dans le bon dossier
+        self.robot_pixmap = QPixmap(resource_path("./img/neutre.png"))  # Assurez-vous que l'image est dans le bon dossier
         self.robot_pixmap = self.robot_pixmap.scaled(400, 400, Qt.AspectRatioMode.KeepAspectRatio)
         self.robot_label.setPixmap(self.robot_pixmap)
         self.robot_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -259,7 +266,7 @@ class CalculatorMode(QWidget):
             self.display.setText(str(result))
             imglist = ["1.png", "2.png", "3.png", "4.png", "5.png", "happy.png", "neutre.png"]
             imgrandom = random.choice(imglist)
-            self.robot_pixmap = QPixmap(f"./img/{imgrandom}")
+            self.robot_pixmap = QPixmap(resource_path(f"./img/{imgrandom}"))
             self.robot_pixmap = self.robot_pixmap.scaled(400, 400, Qt.AspectRatioMode.KeepAspectRatio)
             self.robot_label.setPixmap(self.robot_pixmap)
 
@@ -285,7 +292,7 @@ class MainWindow(QMainWindow):
 
         # Ajouter un widget pour afficher la tête du robot
         self.robot_head_label = QLabel(self)
-        self.robot_pixmap = QPixmap("./img/neutre.png")  # Assurez-vous que l'image est dans le bon dossier
+        self.robot_pixmap = QPixmap(resource_path("./img/neutre.png"))  # Assurez-vous que l'image est dans le bon dossier
         self.robot_head_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.robot_head_label.setPixmap(self.robot_pixmap)
 
