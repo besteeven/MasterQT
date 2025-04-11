@@ -18,9 +18,13 @@ Le robot change d'expression en fonction de vos réponses ou des actions effectu
 ## 🛠️ Installation et Exécution
 
 ### méthode 1: installer l'exécutable
+**Windows**
 - Pour un utilisateur Windows: Un fichier MasterQT.exe est déjà disponible sur ce lien: https://drive.google.com/file/d/1UIedHRNOUkzKSZNJCDd5WI9HEWt1XDQ_/view?usp=sharing
 - Il suffit de le télécharger et l'exécuter
 - à l'exécution, si Windows empêche l'installation, cliquer sur informations complémentaires -> exécuter quand-même
+
+**Linux**
+https://drive.google.com/file/d/1zgsaxUSP44qMVtEcVbACOwlXMUlE9fe4/view?usp=sharing
 
 ### méthode 2: exécuter avec Python
 **Prérequis: Avoir python préinstallé sur l'ordinateur.**
