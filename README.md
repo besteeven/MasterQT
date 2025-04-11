@@ -20,11 +20,15 @@ Le robot change d'expression en fonction de vos réponses ou des actions effectu
 ### méthode 1: installer l'exécutable
 **Windows**
 - Pour un utilisateur Windows: Un fichier MasterQT.exe est déjà disponible sur ce lien: https://drive.google.com/file/d/1UIedHRNOUkzKSZNJCDd5WI9HEWt1XDQ_/view?usp=sharing
-- Il suffit de le télécharger et l'exécuter
+- Il faut le télécharger , le décompresser et l'exécuter
 - à l'exécution, si Windows empêche l'installation, cliquer sur informations complémentaires -> exécuter quand-même
 
 **Linux**
-https://drive.google.com/file/d/1zgsaxUSP44qMVtEcVbACOwlXMUlE9fe4/view?usp=sharing
+- Pour un utilisateur Linux: un fichier exécutéble est disponible sur ce lien: https://drive.google.com/file/d/1zgsaxUSP44qMVtEcVbACOwlXMUlE9fe4/view?usp=sharing
+- Il faut le télécharger et le décompresser
+- Ouvrir un terminal de commande sur le dossier où se trouve l'exécutable et exécuter la commande `chmod +x ./MasterQT` pour obtenir la permission
+- Une fois la permission obtenue, exécuter la commande `./MasterQT` pour exécuter le programme. 
+
 
 ### méthode 2: exécuter avec Python
 **Prérequis: Avoir python préinstallé sur l'ordinateur.**
